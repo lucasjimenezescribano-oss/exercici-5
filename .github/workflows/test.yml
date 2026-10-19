@@ -1,0 +1,45 @@
+name: Python package
+
+on:
+ push:
+    branches["main"]
+
+  jobs:
+    runs-on: windows-latest
+      steps:
+
+        - name: Descargar
+        - uses: actions/checkout@v6
+        - name: Setup Python
+        - uses: actions/setup-python@v6
+            with: 
+              windows-version: 3.12
+        
+        - name: Test unitarios Windows
+        - run: python -m unittest -v
+
+    runs-on: linux-latest
+      steps:
+
+        - name: Descargar
+        - uses: actions/checkout@v6
+        - name: Setup Python
+        - uses: actions/setup-python@v6
+            with: 
+              windows-version: 3.13
+
+        - name: Tets unitarios Linux
+        - run: python -m unittest -v
+ 
+    runs-on: macos-latest
+      steps:
+
+        - name: Descargar
+        - uses: actions/checkout@v6
+        - name: Setup Python
+        - uses: actions/setup-python@v6
+            with: 
+              windows-version: 3.13
+
+        - name: Test unitarios Mac
+        - run: python -m unittest -v
